@@ -11,9 +11,10 @@ public class Crosshair : MonoBehaviour
     private void Update()
     {
         transform.position = Input.mousePosition;
+        TryShoot();
     }
 
-    private void FixedUpdate()
+    private void TryShoot()
     {
         Ray rayOrigin = Camera.main.ScreenPointToRay(Input.mousePosition);
 

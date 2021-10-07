@@ -50,6 +50,6 @@ public class Enemy : MonoBehaviour
         blinkTimer -= Time.deltaTime;
         float lerp = Mathf.Clamp01(blinkTimer / _blinkDuration);
         float intensity = (lerp * _blinkIntensity) + 1.0f;
-        _skinnedMeshRenderer.material.color = Color.white * intensity;
+        //_skinnedMeshRenderer.material.color = Color.white * intensity;
     }
 }
