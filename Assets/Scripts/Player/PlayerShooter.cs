@@ -7,7 +7,6 @@ using UnityEngine.Events;
 public class PlayerShooter : MonoBehaviour
 {
     [SerializeField] private LayerMask _aimLayerMask;
-    [SerializeField] private GameObject _crosshair;
     private PlayerWeaponIk _weaponIk;
     
 

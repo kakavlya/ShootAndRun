@@ -19,15 +19,14 @@ public class Crosshair : MonoBehaviour
         Ray rayOrigin = Camera.main.ScreenPointToRay(Input.mousePosition);
 
         RaycastHit hitInfo;
-
         if (Physics.Raycast(rayOrigin, out hitInfo))
         {
             if (hitInfo.collider != null)
             {
-                if (hitInfo.collider.TryGetComponent(out Enemy enemy))
+                if (hitInfo.collider.TryGetComponent(out ShootableObject shootable))
                 {
                     OnShoot?.Invoke();
-                    enemy.GetHit();
+                    shootable.GetHit();
                 }
             }
         }

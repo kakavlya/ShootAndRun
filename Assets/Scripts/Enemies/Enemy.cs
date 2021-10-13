@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [RequireComponent(typeof(EnemyMover))] 
-public class Enemy : MonoBehaviour
+public class Enemy : ShootableObject
 {
     private SkinnedMeshRenderer _skinnedMeshRenderer;
     private EnemyMover _enemyMover;
@@ -22,18 +22,13 @@ public class Enemy : MonoBehaviour
         _enemyMover = GetComponent<EnemyMover>();
     }
 
-    internal void GetHit()
+    public override void GetHit()
     {
-        StartCoroutine(DieAfterDuration(_dieDuration));
         blinkTimer = _blinkDuration;
-    }
-
-    private IEnumerator DieAfterDuration(float duration)
-    {
+        BlinkOnHit();
+        StartCoroutine(DieAfterDuration(_dieDuration));
         _enemyMover.Die();
         DropTempPickable(_pickable);
-        yield return new WaitForSeconds(duration);
-        gameObject.SetActive(false);
     }
 
     private void DropTempPickable(Pickable pickable)
@@ -45,11 +40,11 @@ public class Enemy : MonoBehaviour
         Destroy(pickableObject.gameObject, 5f);
     }
 
-    private void Update()
+    private void BlinkOnHit()
     {
         blinkTimer -= Time.deltaTime;
         float lerp = Mathf.Clamp01(blinkTimer / _blinkDuration);
         float intensity = (lerp * _blinkIntensity) + 1.0f;
-        //_skinnedMeshRenderer.material.color = Color.white * intensity;
+        _skinnedMeshRenderer.material.color = Color.black * intensity;
     }
 }
