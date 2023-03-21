@@ -84,7 +84,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8430287887612976669}
+  - component: {fileID: 2846774350523471715}
   - component: {fileID: 8430287887612976671}
+  - component: {fileID: 2549423367065877262}
   - component: {fileID: 8430287887612976668}
   m_Layer: 5
   m_Name: Win
@@ -120,6 +122,18 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!225 &2846774350523471715
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8430287887612976674}
+  m_Enabled: 1
+  m_Alpha: 0
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
 --- !u!222 &8430287887612976671
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -128,6 +142,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8430287887612976674}
   m_CullTransparentMesh: 0
+--- !u!114 &2549423367065877262
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8430287887612976674}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 78d111cb405eb6245b23421b991720f1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CanvasGroup: {fileID: 2846774350523471715}
+  Button: {fileID: 8430287888924351985}
 --- !u!114 &8430287887612976668
 MonoBehaviour:
   m_ObjectHideFlags: 0

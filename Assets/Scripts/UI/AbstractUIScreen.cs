@@ -8,6 +8,20 @@ public abstract class AbstractUIScreen : MonoBehaviour
     [SerializeField] protected CanvasGroup CanvasGroup;
     [SerializeField] protected Button Button;
 
+    public void Close()
+    {
+        gameObject.SetActive(false);
+        CanvasGroup.alpha = 0;
+        Button.interactable = false;
+    }
+
+    public void Open()
+    {
+        gameObject.SetActive(true);
+        CanvasGroup.alpha = 1f;
+        Button.interactable = true;
+    }
+
     private void OnEnable()
     {
         Button.onClick.AddListener(OnButtonClick);
@@ -17,10 +31,6 @@ public abstract class AbstractUIScreen : MonoBehaviour
     {
         Button.onClick.RemoveListener(OnButtonClick);
     }
-
-    public abstract void Open();
-
-    public abstract void Close();
 
     protected abstract void OnButtonClick();
 }

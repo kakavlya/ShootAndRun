@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Game : MonoBehaviour
 {
@@ -50,8 +51,15 @@ public class Game : MonoBehaviour
     private void OnNextButtonClick()
     {
         _gameWonScreen.Close();
-        // TODO Implement next level logic
-        StartGame();
+        
+        LoadNextScene();
+    }
+
+    private void LoadNextScene()
+    {
+        
+        var nextSceneToLoad = SceneManager.GetActiveScene().buildIndex + 1;
+        SceneManager.LoadScene(nextSceneToLoad);
     }
 
     private void OnRestartButtonClick()
